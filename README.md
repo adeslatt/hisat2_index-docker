@@ -1,3 +1,5 @@
+[![Docker Image CI](https://github.com/adeslatt/hisat2_index-docker/actions/workflows/docker-image.yml/badge.svg)](https://github.com/adeslatt/hisat2_index-docker/actions/workflows/docker-image.yml)
+
 # hisat2-docker
 
 Build a Container for bioconda hisat2
