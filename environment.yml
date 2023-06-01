@@ -1,0 +1,6 @@
+name: hisat2
+channels:
+  - bioconda
+  - defaults
+dependencies:
+  - hisat2
