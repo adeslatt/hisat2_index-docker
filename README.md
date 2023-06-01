@@ -57,3 +57,75 @@ Now we need to authenticate
 ```bash
 gh auth login
 ```
+
+Authenticate with your *`Personal Authentication Token`*
+
+```bash
+gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI?  [Use arrows to move, type to filter]
+  Login with a web browser
+> Paste an authentication token
+```
+
+Now we can from the command line create this repository.
+
+Let's go ahead and tell *`git`* who we are.
+
+```bash
+git config --global user.email "adeslat@scitechcon.org"
+git config --global user.name "adeslatt"
+```
+
+Following [*`GitHub`*'s updated instructions on how to create a new repository from the command line](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-with-github-cli)
+
+We now type
+
+```bash
+git init -b main
+```
+
+Which will return
+```bash
+Initialized empty Git repository in /home/adeslat/hisat2_index-docker/.git/
+```
+
+And then we type
+
+```bash
+git add . && git commit -m "initial commit"
+```
+which returns something like this.
+
+```bash
+[main (root-commit) d1e421f] initial commit
+ 3 files changed, 33 insertions(+)
+ create mode 100644 Dockerfile
+ create mode 100644 README.md
+ create mode 100644 environment.yml
+```
+We then use the *`gh repo create`* command to create the reposistory.
+
+```bash
+gh repo create
+```
+
+Which then prompts us to what we need to do -- important is that what we want to do is *`Push an existing local repository to GitHub`*.   The tool's remainder defaults are acceptable, because we staged ourselves with the name of the directory.
+
+```bash
+$ gh repo create
+? What would you like to do? Push an existing local repository to GitHub
+? Path to local repository .
+? Repository name hisat2_index-docker
+? Description
+? Visibility Public
+✓ Created repository adeslatt/fastqc-docker on GitHub
+? Add a remote? Yes
+? What should the new remote be called? origin
+✓ Added remote https://github.com/adeslatt/hisat2_index-docker.git
+? Would you like to push commits from the current branch to "origin"? Yes
+✓ Pushed commits to https://github.com/adeslatt/hisat2_index-docker.git
+```
+
